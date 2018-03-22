@@ -1,0 +1,45 @@
+﻿<Window Name="window" x:Class="SystemSolver.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SystemSolver"
+        mc:Ignorable="d"
+         Title="LinearSystemSolver" Height="350" Width="525" Closing="OnClosing">
+    <Grid Width="auto" Height="auto">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="321*"/>
+            <ColumnDefinition Width="196*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="32*"></RowDefinition>
+            <RowDefinition Height="33*"/>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="117*"/>
+            <RowDefinition Height="43*"/>
+            <RowDefinition Height="41*"/>
+        </Grid.RowDefinitions>
+        <Menu Grid.ColumnSpan="2">
+            <MenuItem Header="Файл">
+                <MenuItem Header="Открыть"  Click="Open"></MenuItem>
+                <MenuItem Header="Сохранить"  Click="Save"></MenuItem>
+                <!--<MenuItem Header="Сохранить как..." Click="SaveAs"></MenuItem>-->
+                <Separator></Separator>
+                <MenuItem Header="Выйти" Click="Exit"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Помощь">
+                <MenuItem Header="Справка" Click="Info"></MenuItem>
+                <MenuItem Header="О программе" Click="AboutPro"></MenuItem>
+            </MenuItem>
+        </Menu>
+        <TextBlock Foreground="#FFD42121" HorizontalAlignment="Center" FontSize="14" Grid.Row="1">Десятичный код порождающего полинома:</TextBlock>
+        <TextBox Name="p" Grid.Row="2" TextChanged="polyTextChanged"/>
+        <TextBlock Foreground="#FFD42121" HorizontalAlignment="Center" FontSize="14" Grid.Row="3">Система уравнений:</TextBlock>
+        <TextBox Name="system" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" TextWrapping="Wrap" Grid.Row="4" TextChanged="SestemTextChanged"/>
+        <TextBlock Foreground="#FFD42121" HorizontalAlignment="Center" FontSize="14" Grid.Row="5">Результат:</TextBlock>
+        <TextBox Name="result" Grid.ColumnSpan="2" HorizontalScrollBarVisibility="Auto" Grid.Row="6" IsEnabled="False"></TextBox>
+        <Button Name="play" Grid.Column="1" Foreground="White" FontSize="34" Grid.Row="4" Background="#FF8EFBF1" Click="Play" IsEnabled="False">Запуск</Button>
+        <Button  Name="save_result" Grid.Row="5" Grid.Column="1" Background="#FFF4FFB1" Click="SaveResult" IsEnabled="False">Сохранить результат</Button>
+    </Grid>
+</Window>
